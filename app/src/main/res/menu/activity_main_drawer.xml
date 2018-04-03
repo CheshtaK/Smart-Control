@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_connect"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Connect" />
+        <item
+            android:id="@+id/nav_touchpad"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Touchpad" />
+        <item
+            android:id="@+id/nav_keyboard"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Keyboard" />
+        <item
+            android:id="@+id/nav_file_transfer"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="File Transfer" />
+        <item
+            android:id="@+id/nav_file_download"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="File Download" />
+        <item
+            android:id="@+id/nav_image_viewer"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Image Viewer" />
+        <item
+            android:id="@+id/nav_media_player"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Media Player" />
+        <item
+            android:id="@+id/nav_presentation"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Presentation" />
+        <item
+            android:id="@+id/nav_power_off"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Power Off" />
+    </group>
+
+</menu>
