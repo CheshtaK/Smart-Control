@@ -20,9 +20,9 @@ import java.net.Socket
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    var clientSocket: Socket? = null
-    val objectInputStream: ObjectInputStream? = null
-    val objectOutputStream: ObjectOutputStream? = null
+    object clientSocket {var clientSocket: Socket? = null}
+    object objectInputStream {val objectInputStream: ObjectInputStream? = null}
+    object objectOutputStream {val objectOutputStream: ObjectOutputStream? = null}
     val thisActivity: AppCompatActivity = this
     var doubleBackToExitPressedOnce: Boolean = false
 
@@ -138,13 +138,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         try {
             if(clientSocket != null){
-                clientSocket!!.close()
+                clientSocket.clientSocket!!.close()
             }
             if(objectInputStream != null){
-                objectInputStream.close()
+                objectInputStream.objectInputStream?.close()
             }
             if(objectOutputStream != null){
-                objectOutputStream.close()
+                objectOutputStream.objectOutputStream?.close()
             }
         } catch (e: Exception){
             e.printStackTrace()
@@ -177,18 +177,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun socketException(){
-        if(clientSocket != null){
-            try {
-                clientSocket!!.close()
-                objectOutputStream?.close()
-                clientSocket = null
-            } catch (e: Exception){
-                e.printStackTrace();
+    object socketException {
+        fun socketException(){
+            if(clientSocket != null){
+                try {
+                    clientSocket.clientSocket!!.close()
+                    objectOutputStream.objectOutputStream?.close()
+                    clientSocket.clientSocket = null
+                } catch (e: Exception){
+                    e.printStackTrace();
+                }
             }
         }
-    }
 
+    }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when(requestCode){
             2 -> {
