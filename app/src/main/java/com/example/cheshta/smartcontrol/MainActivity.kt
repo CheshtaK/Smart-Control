@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.cheshta.smartcontrol.connect.ConnectFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import java.io.ObjectInputStream
@@ -21,9 +22,9 @@ import java.net.Socket
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     object clientSocket {var clientSocket: Socket? = null}
-    object objectInputStream {val objectInputStream: ObjectInputStream? = null}
-    object objectOutputStream {val objectOutputStream: ObjectOutputStream? = null}
-    val thisActivity: AppCompatActivity = this
+    object objectInputStream {var objectInputStream: ObjectInputStream? = null}
+    object objectOutputStream {var objectOutputStream: ObjectOutputStream? = null}
+    lateinit var thisActivity: AppCompatActivity
     var doubleBackToExitPressedOnce: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -155,25 +156,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun sendMessageToServer(message: String){
         if(clientSocket != null){
-            //SendMessageToServer().execute(String.valueOf(message), "STRING");
+            SendMessageToServer().execute(message.toString(), "STRING");
         }
     }
 
     fun sendMessageToServer(message: Int){
         if(clientSocket != null){
-            //SendMessageToServer().execute(String.valueOf(message), "INT");
+            SendMessageToServer().execute(message.toString(), "INT");
         }
     }
 
     fun sendMessageToServer(message: Float){
         if(clientSocket != null){
-            //SendMessageToServer().execute(String.valueOf(message), "FLOAT");
+            SendMessageToServer().execute(message.toString(), "FLOAT");
         }
     }
 
     fun sendMessageToServer(message: Long){
         if(clientSocket != null){
-            //SendMessageToServer().execute(String.valueOf(message), "LONG");
+            SendMessageToServer().execute(message.toString(), "LONG");
         }
     }
 
