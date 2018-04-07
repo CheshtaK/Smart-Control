@@ -1,6 +1,5 @@
 package com.example.cheshta.smartcontrol.connect
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -13,7 +12,6 @@ import com.example.cheshta.smartcontrol.MainActivity
 import com.example.cheshta.smartcontrol.R
 import com.example.cheshta.smartcontrol.Server
 import kotlinx.android.synthetic.main.fragment_connect.*
-import java.net.ServerSocket
 import java.net.Socket
 
 class ConnectFragment : Fragment() {
@@ -24,7 +22,7 @@ class ConnectFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         sharedPreferences = activity.getSharedPreferences("lastConnectionDetails", Context.MODE_PRIVATE)
-        val lastConnectionDetails: Array<String> = getLastConnectionDetails()
+        val lastConnectionDetails = getLastConnectionDetails()
         etIpAddress.setText(lastConnectionDetails[0])
         etPortNumber.setText(lastConnectionDetails[1])
 
@@ -46,8 +44,8 @@ class ConnectFragment : Fragment() {
     }
 
     fun makeConnection(){
-        val ipAddress: String = etIpAddress.text.toString()
-        val port: String = etPortNumber.text.toString()
+        val ipAddress = etIpAddress.text.toString()
+        val port = etPortNumber.text.toString()
 
         if(ValidateIP.validateIP(ipAddress) && ValidateIP.validatePort(port)){
             setLastConnectionDetails(arrayOf(ipAddress,port))
@@ -78,14 +76,14 @@ class ConnectFragment : Fragment() {
     }
 
     fun getLastConnectionDetails(): Array<String>{
-        var arr: Array<String> = arrayOf<String>()
+        var arr = arrayOf<String>()
         arr[0] = sharedPreferences.getString("lastConnectedIP", "")
         arr[1] = sharedPreferences.getString("lastConnectedPort","3000")
         return arr
     }
 
     fun setLastConnectionDetails(arr: Array<String>){
-        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        val editor = sharedPreferences.edit()
         editor.putString("lastConnectedIP",arr[0])
         editor.putString("lastConnectedPort",arr[1])
         editor.apply()

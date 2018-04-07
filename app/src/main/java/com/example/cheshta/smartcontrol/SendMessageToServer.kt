@@ -8,8 +8,8 @@ import android.os.AsyncTask
 class SendMessageToServer: AsyncTask<String, Unit, Unit>() {
 
     override fun doInBackground(vararg p0: String?) {
-        var message: String? = p0[0]
-        val code: String? = p0[1]
+        var message = p0[0]
+        val code = p0[1]
 
         var intMessage: Int
         var floatMessage: Float

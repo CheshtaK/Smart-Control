@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     object objectInputStream {var objectInputStream: ObjectInputStream? = null}
     object objectOutputStream {var objectOutputStream: ObjectOutputStream? = null}
     lateinit var thisActivity: AppCompatActivity
-    var doubleBackToExitPressedOnce: Boolean = false
+    var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -154,27 +154,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //Server.closeServer();
     }
 
-    fun sendMessageToServer(message: String){
-        if(clientSocket != null){
-            SendMessageToServer().execute(message.toString(), "STRING");
-        }
-    }
 
-    fun sendMessageToServer(message: Int){
-        if(clientSocket != null){
-            SendMessageToServer().execute(message.toString(), "INT");
+    object sendMessageToServer {
+        fun sendMessageToServer(message: String){
+            if(clientSocket != null){
+                SendMessageToServer().execute(message.toString(), "STRING");
+            }
         }
-    }
 
-    fun sendMessageToServer(message: Float){
-        if(clientSocket != null){
-            SendMessageToServer().execute(message.toString(), "FLOAT");
+        fun sendMessageToServer(message: Int){
+            if(clientSocket != null){
+                SendMessageToServer().execute(message.toString(), "INT");
+            }
         }
-    }
 
-    fun sendMessageToServer(message: Long){
-        if(clientSocket != null){
-            SendMessageToServer().execute(message.toString(), "LONG");
+        fun sendMessageToServer(message: Float){
+            if(clientSocket != null){
+                SendMessageToServer().execute(message.toString(), "FLOAT");
+            }
+        }
+
+        fun sendMessageToServer(message: Long){
+            if(clientSocket != null){
+                SendMessageToServer().execute(message.toString(), "LONG");
+            }
         }
     }
 

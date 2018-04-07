@@ -9,6 +9,7 @@ import java.io.OutputStream
 import java.net.ServerSocket
 import java.net.Socket
 
+
 /**
  * Created by chesh on 4/4/2018.
  */
@@ -44,10 +45,10 @@ class Server {
             objectOutputStream.objectOutputStream = ObjectOutputStream(outputStream.outputStream)
 
             var filepath: String
-            val sendFilesList: SendFilesList = SendFilesList()
+            val sendFilesList = SendFilesList()
 
             while (true){
-                val message: String = objectInputStream.objectInputStream.readObject() as String
+                val message = objectInputStream.objectInputStream.readObject() as String
                 if(message == null){
                     closeServer()
                     break
@@ -56,7 +57,7 @@ class Server {
                 when(message){
                     "FILE_DOWNLOAD_LIST_FILES" -> {
                         filepath = objectInputStream.objectInputStream.readObject() as String
-                        FilesList()
+
                     }
 
                 }

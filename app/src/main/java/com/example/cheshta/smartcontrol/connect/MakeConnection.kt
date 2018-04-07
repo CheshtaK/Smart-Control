@@ -29,8 +29,8 @@ abstract class MakeConnection: AsyncTask<Unit, Unit, Socket>, CallbackReceiver {
 
     override fun doInBackground(vararg p0: Unit?): Socket? {
         try {
-            val portNumber: Int = port.toInt()
-            val socketAddress: SocketAddress = InetSocketAddress(ipAddress,portNumber)
+            val portNumber = port.toInt()
+            val socketAddress = InetSocketAddress(ipAddress,portNumber)
             clientSocket = Socket()
             clientSocket!!.connect(socketAddress,3000)
             MainActivity.objectInputStream.objectInputStream = ObjectInputStream(clientSocket!!.getInputStream())
