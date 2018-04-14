@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.cheshta.smartcontrol.MainActivity
 import com.example.cheshta.smartcontrol.R
-import com.example.cheshta.smartcontrol.Server
+import com.example.cheshta.smartcontrol.server.Server
 import kotlinx.android.synthetic.main.fragment_connect.*
 import java.net.Socket
 
