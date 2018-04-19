@@ -2,9 +2,9 @@ package com.example.cheshta.smartcontrol.server
 
 import android.app.Activity
 import android.widget.Toast
-import com.example.cheshta.smartcontrol.FilesList
+import com.example.cheshta.smartcontrol.filetransfer.FilesList
 import com.example.cheshta.smartcontrol.MainActivity
-import com.example.cheshta.smartcontrol.SendFilesList
+import com.example.cheshta.smartcontrol.filetransfer.SendFilesList
 import java.io.InputStream
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream

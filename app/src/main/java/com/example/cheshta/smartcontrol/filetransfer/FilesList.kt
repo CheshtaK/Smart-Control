@@ -1,13 +1,16 @@
-package com.example.cheshta.smartcontrol
+package com.example.cheshta.smartcontrol.filetransfer
 
 import android.os.AsyncTask
+import com.example.cheshta.smartcontrol.CallbackReceiver
+import com.example.cheshta.smartcontrol.R
+import com.example.cheshta.smartcontrol.Utility
 import java.io.File
 import
 
 /**
  * Created by chesh on 4/4/2018.
  */
-abstract class FilesList: AsyncTask<String, Unit, Array<AvatarFile>>(), CallbackReceiver{
+abstract class FilesList: AsyncTask<String, Unit, Array<AvatarFile>>(), CallbackReceiver {
 
     override fun doInBackground(vararg p0: String?): Array<AvatarFile> {
         val path = p0[0].toString()

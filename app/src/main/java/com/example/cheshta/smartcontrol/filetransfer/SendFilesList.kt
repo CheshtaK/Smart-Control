@@ -1,4 +1,4 @@
-package com.example.cheshta.smartcontrol
+package com.example.cheshta.smartcontrol.filetransfer
 
 import java.io.ObjectOutputStream
 
