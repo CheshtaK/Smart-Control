@@ -32,7 +32,7 @@ class FileDownloadFragment : Fragment(), View.OnClickListener {
         backButton.isEnabled = false
         backButton.setOnClickListener(this)
         getFiles()
-        fileTransferListView.setOnClickListener()
+        fileTransferListView.setOnClickListener(this)
         return inflater.inflate(R.layout.fragment_file_download, container, false)
     }
 
