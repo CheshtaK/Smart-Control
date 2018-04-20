@@ -11,7 +11,7 @@ open class GetFilesListFromServer : AsyncTask<String, Unit, ArrayList<AvatarFile
 
     override fun doInBackground(vararg p0: String?): ArrayList<AvatarFile> {
         val path = p0[0]
-        val myFiles: ArrayList<AvatarFile> = null
+        var myFiles: ArrayList<AvatarFile> = null
         try {
             if(MainActivity.clientSocket.clientSocket != null){
                 if(MainActivity.objectInputStream.objectInputStream == null){
