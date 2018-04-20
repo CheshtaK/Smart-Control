@@ -1,4 +1,4 @@
-package com.example.cheshta.smartcontrol
+package com.example.cheshta.smartcontrol.adapter
 
 import android.app.Activity
 import android.content.Context
@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.cheshta.smartcontrol.model.NavigationDrawerItem
 import android.content.ContextWrapper
+import com.example.cheshta.smartcontrol.R
 
 
 class NavigationDrawerItemAdapter(context: Context, layoutResourceId: Int, objects: Array<NavigationDrawerItem>)
@@ -51,13 +52,15 @@ class NavigationDrawerItemAdapter(context: Context, layoutResourceId: Int, objec
         }
     }
 
-    fun scanForActivity(cont: Context?): Activity? {
-        if (cont == null)
+    object scanForActivity{
+        fun scanForActivity(cont: Context?): Activity? {
+            if (cont == null)
+                return null
+            else if (cont is Activity)
+                return cont
+            else if (cont is ContextWrapper)
+                return scanForActivity(cont.baseContext)
             return null
-        else if (cont is Activity)
-            return cont
-        else if (cont is ContextWrapper)
-            return scanForActivity(cont.baseContext)
-        return null
+        }
     }
 }
